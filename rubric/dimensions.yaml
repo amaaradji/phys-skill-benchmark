@@ -1,0 +1,27 @@
+# PSB Total Score: eight dimensions, weights summing to 100.
+# Each task declares which dimensions are in scope; in-scope weights are renormalized to 100.
+dimensions:
+  task_completion:
+    weight: 20
+    question: Was the task completed and the outcome acceptable?
+  process_correctness:
+    weight: 15
+    question: Was the correct sequence followed and procedures respected?
+  tool_use:
+    weight: 15
+    question: Were tools selected and used properly, with adequate precision?
+  safety:
+    weight: 15
+    question: Were unsafe actions avoided and constraints respected?
+  perception:
+    weight: 10
+    question: Were objects, tools, hazards, and environment state identified?
+  planning:
+    weight: 10
+    question: Was the task decomposed sensibly, and were the effects of actions anticipated?
+  adaptability:
+    weight: 10
+    question: Was variation in objects, layout, or instructions handled?
+  efficiency:
+    weight: 5
+    question: Was the task done without excessive time, waste, or retries?
