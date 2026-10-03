@@ -1,0 +1,59 @@
+{
+  "plan": {
+    "type": "object",
+    "properties": {
+      "circuits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {"type": "string"},
+            "circuit_type": {"type": "string", "enum": ["socket outlets", "lighting", "cooker", "shower", "outdoor socket outlet"]},
+            "mcb_rating_a_as_drawn": {"type": "number"},
+            "cable_mm2_as_drawn": {"type": "number"},
+            "rcd_protected_as_drawn": {"type": "boolean"},
+            "required_mcb_rating_a": {"type": "number"},
+            "required_cable_mm2": {"type": "number"},
+            "rcd_required": {"type": "boolean"},
+            "compliant": {"type": "boolean"},
+            "issue": {"type": ["string", "null"]}
+          },
+          "required": ["id", "circuit_type", "mcb_rating_a_as_drawn", "cable_mm2_as_drawn", "rcd_protected_as_drawn", "required_mcb_rating_a", "required_cable_mm2", "rcd_required", "compliant", "issue"],
+          "additionalProperties": false
+        }
+      },
+      "sequence": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "step": {"type": "integer"},
+            "kind": {"type": "string", "enum": ["safe_isolation", "inspection", "installation", "test", "energize", "handover"]},
+            "test": {"type": ["string", "null"], "enum": ["RCD operation", "insulation resistance", "functional test", "continuity of protective conductors", "earth fault loop impedance", "polarity", null]},
+            "action": {"type": "string"}
+          },
+          "required": ["step", "kind", "test", "action"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["circuits", "sequence"],
+    "additionalProperties": false
+  },
+  "change": {
+    "type": "object",
+    "properties": {
+      "id": {"type": "string"},
+      "circuit_type": {"type": "string", "enum": ["socket outlets", "lighting", "cooker", "shower", "outdoor socket outlet"]},
+      "required_mcb_rating_a": {"type": "number"},
+      "required_cable_mm2": {"type": "number"},
+      "rcd_required": {"type": "boolean"},
+      "tests": {
+        "type": "array",
+        "items": {"type": "string", "enum": ["RCD operation", "insulation resistance", "functional test", "continuity of protective conductors", "earth fault loop impedance", "polarity"]}
+      }
+    },
+    "required": ["id", "circuit_type", "required_mcb_rating_a", "required_cable_mm2", "rcd_required", "tests"],
+    "additionalProperties": false
+  }
+}

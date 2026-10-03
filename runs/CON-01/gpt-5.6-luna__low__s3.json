@@ -1,0 +1,177 @@
+{
+  "task_id": "CON-01",
+  "model_id": "gpt-5.6-luna",
+  "deployment": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "sample": 3,
+  "preparation_regime": "zero-shot",
+  "timestamp_utc": "2026-10-02T23:54:09+00:00",
+  "openai_sdk": "1.76.0",
+  "task_sha256": "2c0ad970eb879e4ba3d908b4d52080097a4b0cd4232f43e2abfe6416a6544a89",
+  "served_model": "gpt-5.6-luna",
+  "plan": {
+    "circuits": [
+      {
+        "id": "C1",
+        "circuit_type": "socket outlets",
+        "mcb_rating_a_as_drawn": 20,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": true,
+        "required_mcb_rating_a": 20,
+        "required_cable_mm2": 2.5,
+        "rcd_required": true,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C2",
+        "circuit_type": "socket outlets",
+        "mcb_rating_a_as_drawn": 20,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": true,
+        "required_mcb_rating_a": 20,
+        "required_cable_mm2": 2.5,
+        "rcd_required": true,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C3",
+        "circuit_type": "lighting",
+        "mcb_rating_a_as_drawn": 6,
+        "cable_mm2_as_drawn": 1.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 6,
+        "required_cable_mm2": 1.5,
+        "rcd_required": false,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C4",
+        "circuit_type": "lighting",
+        "mcb_rating_a_as_drawn": 6,
+        "cable_mm2_as_drawn": 1.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 6,
+        "required_cable_mm2": 1.5,
+        "rcd_required": false,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C5",
+        "circuit_type": "cooker",
+        "mcb_rating_a_as_drawn": 32,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 32,
+        "required_cable_mm2": 6,
+        "rcd_required": false,
+        "compliant": false,
+        "issue": "Cable is 2.5 mm\u00b2 as drawn; cooker circuit requires minimum 6 mm\u00b2 copper cable."
+      },
+      {
+        "id": "C6",
+        "circuit_type": "shower",
+        "mcb_rating_a_as_drawn": 40,
+        "cable_mm2_as_drawn": 10,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 40,
+        "required_cable_mm2": 10,
+        "rcd_required": true,
+        "compliant": false,
+        "issue": "Shower circuit is not shown as protected by 30 mA RCD."
+      }
+    ],
+    "sequence": [
+      {
+        "step": 1,
+        "kind": "safe_isolation",
+        "test": null,
+        "action": "Isolate the supply, secure the isolation, and prove dead before work starts."
+      },
+      {
+        "step": 2,
+        "kind": "inspection",
+        "test": null,
+        "action": "Inspect the design and installation against the specification, identify all final circuits, and confirm the required corrections: replace the C5 cooker cable with minimum 6 mm\u00b2 copper cable and provide 30 mA RCD protection for C6."
+      },
+      {
+        "step": 3,
+        "kind": "installation",
+        "test": null,
+        "action": "Install or amend the consumer unit, final circuits, protective devices, RCD arrangements, earthing and bonding, accessories, and circuit identification in accordance with the corrected design."
+      },
+      {
+        "step": 4,
+        "kind": "test",
+        "test": "continuity of protective conductors",
+        "action": "With the installation isolated, verify continuity of protective conductors on every final circuit."
+      },
+      {
+        "step": 5,
+        "kind": "test",
+        "test": "insulation resistance",
+        "action": "With sensitive equipment disconnected or protected as appropriate, test insulation resistance on every final circuit."
+      },
+      {
+        "step": 6,
+        "kind": "test",
+        "test": "polarity",
+        "action": "Verify correct polarity at the origin and at outlets, switches, luminaires, cooker connection point, shower connection point, and other relevant points on every final circuit."
+      },
+      {
+        "step": 7,
+        "kind": "test",
+        "test": "earth fault loop impedance",
+        "action": "Measure earth fault loop impedance for every final circuit and confirm the results are suitable for the protective devices."
+      },
+      {
+        "step": 8,
+        "kind": "energize",
+        "test": "RCD operation",
+        "action": "Energize the installation safely and test operation of each required 30 mA RCD, including protection for C1, C2, and C6."
+      },
+      {
+        "step": 9,
+        "kind": "test",
+        "test": "functional test",
+        "action": "Carry out functional tests on every final circuit, including socket outlets, lighting controls and luminaires, cooker connection, and shower controls."
+      },
+      {
+        "step": 10,
+        "kind": "handover",
+        "test": null,
+        "action": "Review and record all test results, confirm defects have been corrected, label the consumer unit and circuits, and hand over the completed installation and verification documentation."
+      }
+    ]
+  },
+  "change": {
+    "id": "C7",
+    "circuit_type": "outdoor socket outlet",
+    "required_mcb_rating_a": 20,
+    "required_cable_mm2": 2.5,
+    "rcd_required": true,
+    "tests": [
+      "RCD operation",
+      "insulation resistance",
+      "functional test",
+      "continuity of protective conductors",
+      "earth fault loop impedance",
+      "polarity"
+    ]
+  },
+  "usage": {
+    "plan": {
+      "input_tokens": 2229,
+      "output_tokens": 1112,
+      "reasoning_tokens": 165
+    },
+    "change": {
+      "input_tokens": 3298,
+      "output_tokens": 75,
+      "reasoning_tokens": 0
+    }
+  }
+}

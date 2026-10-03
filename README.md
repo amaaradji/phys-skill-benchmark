@@ -10,8 +10,10 @@ holds the instrument.
 
 ## Status
 
-Early. The scoring rubric is defined. The first illustrative task and its evaluation are in
-progress.
+Early. One task, CON-01 (electrical installation planning from a wiring diagram, modeled on
+WorldSkills Electrical Installations), has been run against one model at three reasoning-effort
+settings, three samples each. Its judgement aspects were rated by three AI judges, standing in
+for human experts (`ratings/CON-01/judges.md`). Results are in `results/CON-01/summary.md`.
 
 ## Setup
 
@@ -36,11 +38,41 @@ derives the v1 URL from either.
 python -m harness.smoke_test
 ```
 
+## Running a task
+
+```
+python -m harness.run_task CON-01 gpt-5.6-luna --efforts low medium high --samples 3
+python -m harness.score CON-01
+```
+
+`run_task` writes one JSON record per run to `runs/<task>/`, with the model's outputs, token
+usage, SDK version, timestamp, and a hash of the task files. `score` checks every measurement
+aspect of the task's marking scheme, adds judgement marks once ratings exist, and writes
+`results/<task>/scores.csv` and `summary.md`.
+
+## Judgement ratings
+
+Marking follows WorldSkills practice: measurement aspects score full marks or zero against a
+stated criterion, and judgement aspects are scored by three judges on a 0 to 3 scale against
+written benchmarks.
+
+```
+python -m harness.rater_packet CON-01 --samples 1 2 3
+```
+
+This writes a blind packet to `ratings/<task>/` (`packet.html` is self-contained), a rating sheet
+`ratings.csv`, and `key.json`, which maps plan labels to runs. Keep the key from the raters until
+they have rated; it is committed afterwards so that the scores can be reproduced. Labels are
+reshuffled on every call, so do not regenerate a packet once it has been sent. Enter the panel's scores in `ratings.csv` and rerun `score`, which then reports the
+renormalized totals and inter-rater agreement (Krippendorff's alpha, ordinal).
+
 ## Layout
 
 - `config.yaml`: models under evaluation, and where their credentials come from
 - `rubric/dimensions.yaml`: the eight scoring dimensions and their weights
-- `harness/`: model access and evaluation scripts
+- `tasks/<task>/`: brief, change notice, drawing, output schema, and marking scheme
+- `harness/`: model access, task runner, scorer, and rating packet builder
+- `runs/`, `results/`, `ratings/`: raw outputs, scores, and panel ratings
 
 ## License
 

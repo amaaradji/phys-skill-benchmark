@@ -1,0 +1,149 @@
+# CON-01 marking scheme.
+#
+# Follows WorldSkills practice (WSC2026 Technical Description, Electrical Installations, s. 4.4 to
+# 4.7): every Aspect is assessed either by measurement (full marks or zero against a stated
+# criterion) or by judgement (three experts score independently on a 0 to 3 scale, converted to
+# marks as aspect_marks * mean_score / 3).
+#
+# Tool use and physical interaction (15 points) is out of scope for this digital task, so the
+# in-scope maximum is 85 and totals are renormalized to 100.
+
+out_of_scope: [tool_use]
+
+answer_key:
+  circuits:
+    C1: {circuit_type: socket outlets, mcb_as_drawn: 20, cable_as_drawn: 2.5, rcd_as_drawn: true,  compliant: true}
+    C2: {circuit_type: socket outlets, mcb_as_drawn: 20, cable_as_drawn: 2.5, rcd_as_drawn: true,  compliant: true}
+    C3: {circuit_type: lighting,       mcb_as_drawn: 6,  cable_as_drawn: 1.5, rcd_as_drawn: false, compliant: true}
+    C4: {circuit_type: lighting,       mcb_as_drawn: 6,  cable_as_drawn: 1.5, rcd_as_drawn: false, compliant: true}
+    C5: {circuit_type: cooker,         mcb_as_drawn: 32, cable_as_drawn: 2.5, rcd_as_drawn: false, compliant: false}
+    C6: {circuit_type: shower,         mcb_as_drawn: 40, cable_as_drawn: 10,  rcd_as_drawn: false, compliant: false}
+  specification:
+    socket outlets:        {mcb: 20, cable: 2.5, rcd: true}
+    lighting:              {mcb: 6,  cable: 1.5, rcd: false}
+    cooker:                {mcb: 32, cable: 6,   rcd: false}
+    shower:                {mcb: 40, cable: 10,  rcd: true}
+    outdoor socket outlet: {mcb: 20, cable: 2.5, rcd: true}
+  # Polarity may be verified before energizing or confirmed live, and national practices differ,
+  # so its position in the sequence is not marked. Test Projects must reflect IEC standards rather
+  # than one region's practice (Technical Description, s. 5.3).
+  dead_tests: [continuity of protective conductors, insulation resistance]
+  live_tests: [earth fault loop impedance, RCD operation, functional test]
+  order_free_tests: [polarity]
+  change_circuit: {id: C7, circuit_type: outdoor socket outlet, mcb: 20, cable: 2.5, rcd: true}
+
+# Guidance notes for the judgement panel, playing the role of the written benchmarks that
+# WorldSkills judgement relies on (Technical Description, s. 4.6).
+rater_notes: >
+  The drawing contains two deliberate non-compliances with the specification. C5 (cooker, 32 A) is
+  drawn with 2.5 mm² cable where 6 mm² is required, and C6 (shower) is drawn without the 30 mA RCD
+  protection the specification requires. C1 to C4 comply. A plan that meets the industry standard
+  identifies both faults and corrects them before the installation is energized, isolates the
+  supply safely before work starts, carries out continuity of protective conductors and insulation
+  resistance before energizing, carries out earth fault loop impedance, RCD operation, and the
+  functional test after energizing, and ends with a handover. Polarity may be verified dead or
+  live. Rate against these notes and the benchmarks for each aspect, and add a comment wherever
+  you are unsure.
+
+aspects:
+  - id: PE-M1
+    dimension: perception
+    type: measurement
+    marks: 4
+    criterion: Exactly circuits C1 to C6 are listed, each with the correct circuit type.
+  - id: PE-M2
+    dimension: perception
+    type: measurement
+    marks: 3
+    criterion: MCB rating and cable size as drawn are read correctly for all six circuits.
+  - id: PE-M3
+    dimension: perception
+    type: measurement
+    marks: 3
+    criterion: RCD protection as drawn is read correctly for all six circuits (only C1 and C2).
+
+  - id: TC-M1
+    dimension: task_completion
+    type: measurement
+    marks: 6
+    criterion: Required MCB rating and cable size are correct for all six circuits.
+  - id: TC-M2
+    dimension: task_completion
+    type: measurement
+    marks: 6
+    criterion: RCD requirement is correct for all six circuits.
+  - id: TC-J1
+    dimension: task_completion
+    type: judgement
+    marks: 8
+    question: Could a qualified electrician carry out the work safely from this plan without further clarification?
+    benchmarks:
+      0: No. Gaps or errors would stop the work or make it unsafe.
+      1: Yes, with at most minor clarification. Meets the standard of a competent electrician.
+      2: Yes, and in specific respects clearer or more complete than the standard requires.
+      3: Exemplary. Could serve as a model plan.
+
+  - id: SC-M1
+    dimension: safety
+    type: measurement
+    marks: 6
+    criterion: C5 is marked non-compliant, with the undersized cable identified as the issue.
+  - id: SC-M2
+    dimension: safety
+    type: measurement
+    marks: 6
+    criterion: C6 is marked non-compliant, with the missing RCD protection identified as the issue.
+  - id: SC-M3
+    dimension: safety
+    type: measurement
+    marks: 3
+    criterion: No compliant circuit (C1 to C4) is marked non-compliant.
+
+  - id: PC-M1
+    dimension: process_correctness
+    type: measurement
+    marks: 5
+    criterion: A safe isolation step precedes the first installation step.
+  - id: PC-M2
+    dimension: process_correctness
+    type: measurement
+    marks: 5
+    criterion: Continuity of protective conductors and insulation resistance are carried out before the installation is energized, and polarity is verified.
+  - id: PC-M3
+    dimension: process_correctness
+    type: measurement
+    marks: 5
+    criterion: Earth fault loop impedance, RCD operation, and the functional test are all carried out after the installation is energized.
+
+  - id: PL-J1
+    dimension: planning
+    type: judgement
+    marks: 10
+    question: Is the work decomposed into coherent phases, with dependencies respected and consequences anticipated?
+    benchmarks:
+      0: No coherent structure, or dependencies violated.
+      1: Coherent phases with dependencies respected. Meets the standard.
+      2: As 1, and in specific respects anticipates consequences beyond what the standard requires.
+      3: Exemplary decomposition throughout.
+
+  - id: AD-M1
+    dimension: adaptability
+    type: measurement
+    marks: 6
+    criterion: After the change notice, C7 is specified as an outdoor socket outlet with a 20 A MCB, 2.5 mm2 cable, and RCD protection.
+  - id: AD-M2
+    dimension: adaptability
+    type: measurement
+    marks: 4
+    criterion: All six required verification tests are listed for C7.
+
+  - id: EF-J1
+    dimension: efficiency
+    type: judgement
+    marks: 5
+    question: Is the plan concise, without redundant, repeated, or irrelevant steps?
+    benchmarks:
+      0: Substantially padded or repetitive.
+      1: Concise with minor redundancy. Meets the standard.
+      2: Concise, and in specific respects tighter than the standard requires.
+      3: Exemplary economy throughout.

@@ -1,0 +1,30 @@
+task_id: CON-01
+skill_family: Construction and building
+competition_inspiration: Electrical Installations (WorldSkills Skill 18)
+task_name: Design check and installation planning from a wiring diagram
+short_description: >
+  Given the single-line diagram of a small domestic installation and a project specification,
+  check each final circuit against the specification, identify non-compliances, and plan the
+  installation and its verification in a safe order. A change notice adding a circuit is issued
+  after the plan, mirroring the surprise module of the WorldSkills test project.
+input_modalities: [text, image]
+output_modalities: [structured_plan]
+environment:
+  type: digital (PSB-D)
+  constraints: no tools beyond the drawing and specification
+  hazards: two deliberate non-compliances in the drawing (an undersized cable and a missing RCD)
+evaluation_layer: [digital]
+dimensions_in_scope: all except tool_use (digital task; renormalized from 85 to 100)
+preparation_regime: declared per run
+turns:
+  - brief.md
+  - change_notice.md
+assets:
+  diagram: diagram.png
+  diagram_source: diagram.tex
+marking_scheme: marking_scheme.yaml
+output_schema: output_schema.json
+difficulty_level: medium
+notes: >
+  The specification table is a simplified project specification modelled on IEC practice, given
+  to the agent in full. It is not a substitute for any installation standard.

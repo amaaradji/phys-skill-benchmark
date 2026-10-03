@@ -1,0 +1,183 @@
+{
+  "task_id": "CON-01",
+  "model_id": "gpt-5.6-luna",
+  "deployment": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "sample": 2,
+  "preparation_regime": "zero-shot",
+  "timestamp_utc": "2026-10-02T23:54:02+00:00",
+  "openai_sdk": "1.76.0",
+  "task_sha256": "2c0ad970eb879e4ba3d908b4d52080097a4b0cd4232f43e2abfe6416a6544a89",
+  "served_model": "gpt-5.6-luna",
+  "plan": {
+    "circuits": [
+      {
+        "id": "C1",
+        "circuit_type": "socket outlets",
+        "mcb_rating_a_as_drawn": 20,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": true,
+        "required_mcb_rating_a": 20,
+        "required_cable_mm2": 2.5,
+        "rcd_required": true,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C2",
+        "circuit_type": "socket outlets",
+        "mcb_rating_a_as_drawn": 20,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": true,
+        "required_mcb_rating_a": 20,
+        "required_cable_mm2": 2.5,
+        "rcd_required": true,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C3",
+        "circuit_type": "lighting",
+        "mcb_rating_a_as_drawn": 6,
+        "cable_mm2_as_drawn": 1.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 6,
+        "required_cable_mm2": 1.5,
+        "rcd_required": false,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C4",
+        "circuit_type": "lighting",
+        "mcb_rating_a_as_drawn": 6,
+        "cable_mm2_as_drawn": 1.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 6,
+        "required_cable_mm2": 1.5,
+        "rcd_required": false,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C5",
+        "circuit_type": "cooker",
+        "mcb_rating_a_as_drawn": 32,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 32,
+        "required_cable_mm2": 6,
+        "rcd_required": false,
+        "compliant": false,
+        "issue": "The cable is 2.5 mm\u00b2 as drawn; the specification requires a minimum 6 mm\u00b2 copper cable."
+      },
+      {
+        "id": "C6",
+        "circuit_type": "shower",
+        "mcb_rating_a_as_drawn": 40,
+        "cable_mm2_as_drawn": 10,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 40,
+        "required_cable_mm2": 10,
+        "rcd_required": true,
+        "compliant": false,
+        "issue": "The shower circuit is not shown as protected by 30 mA RCD protection."
+      }
+    ],
+    "sequence": [
+      {
+        "step": 1,
+        "kind": "safe_isolation",
+        "test": null,
+        "action": "Confirm the design and identify the supply and all final circuits; isolate the installation with the main switch, lock off, label, and verify dead using an approved voltage indicator."
+      },
+      {
+        "step": 2,
+        "kind": "inspection",
+        "test": null,
+        "action": "Inspect the installation, equipment, earthing and bonding, cable routes and terminations; confirm C5 is wired in minimum 6 mm\u00b2 copper and provide 30 mA RCD protection for C6 before work proceeds."
+      },
+      {
+        "step": 3,
+        "kind": "installation",
+        "test": null,
+        "action": "Install and terminate the compliant circuits, protective devices, RCD protection, earthing and bonding in accordance with the corrected design."
+      },
+      {
+        "step": 4,
+        "kind": "test",
+        "test": "continuity of protective conductors",
+        "action": "With the installation isolated, test continuity of protective conductors for every final circuit."
+      },
+      {
+        "step": 5,
+        "kind": "test",
+        "test": "insulation resistance",
+        "action": "With sensitive equipment disconnected or protected as appropriate, test insulation resistance for every final circuit."
+      },
+      {
+        "step": 6,
+        "kind": "test",
+        "test": "polarity",
+        "action": "Test polarity at the origin and at the outlets, accessories and points of connection on every final circuit."
+      },
+      {
+        "step": 7,
+        "kind": "test",
+        "test": "earth fault loop impedance",
+        "action": "Measure earth fault loop impedance for every final circuit and confirm the results are suitable for the protective devices."
+      },
+      {
+        "step": 8,
+        "kind": "energize",
+        "test": null,
+        "action": "Remove test links and temporary protections as appropriate, refit covers, remove tools and foreign objects, then energize the installation under controlled conditions."
+      },
+      {
+        "step": 9,
+        "kind": "test",
+        "test": "RCD operation",
+        "action": "Test operation and trip performance of each 30 mA RCD protecting C1, C2 and C6."
+      },
+      {
+        "step": 10,
+        "kind": "test",
+        "test": "functional test",
+        "action": "Carry out functional tests on every final circuit, including socket outlets, lighting controls and fittings, cooker connection, shower controls and RCD-protected circuits."
+      },
+      {
+        "step": 11,
+        "kind": "handover",
+        "test": null,
+        "action": "Record all inspection and test results, rectify and retest any failures, label the consumer unit and circuits, provide the electrical installation documentation and explain operation and isolation to the client."
+      }
+    ]
+  },
+  "change": {
+    "id": "C7",
+    "circuit_type": "outdoor socket outlet",
+    "required_mcb_rating_a": 20,
+    "required_cable_mm2": 2.5,
+    "rcd_required": true,
+    "tests": [
+      "RCD operation",
+      "insulation resistance",
+      "functional test",
+      "continuity of protective conductors",
+      "earth fault loop impedance",
+      "polarity"
+    ]
+  },
+  "usage": {
+    "plan": {
+      "input_tokens": 2229,
+      "output_tokens": 1182,
+      "reasoning_tokens": 194
+    },
+    "change": {
+      "input_tokens": 3368,
+      "output_tokens": 109,
+      "reasoning_tokens": 32
+    }
+  }
+}

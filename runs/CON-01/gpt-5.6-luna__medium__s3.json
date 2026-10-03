@@ -1,0 +1,237 @@
+{
+  "task_id": "CON-01",
+  "model_id": "gpt-5.6-luna",
+  "deployment": "gpt-5.6-luna",
+  "reasoning_effort": "medium",
+  "sample": 3,
+  "preparation_regime": "zero-shot",
+  "timestamp_utc": "2026-10-02T23:54:47+00:00",
+  "openai_sdk": "1.76.0",
+  "task_sha256": "2c0ad970eb879e4ba3d908b4d52080097a4b0cd4232f43e2abfe6416a6544a89",
+  "served_model": "gpt-5.6-luna",
+  "plan": {
+    "circuits": [
+      {
+        "id": "C1",
+        "circuit_type": "socket outlets",
+        "mcb_rating_a_as_drawn": 20,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": true,
+        "required_mcb_rating_a": 20,
+        "required_cable_mm2": 2.5,
+        "rcd_required": true,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C2",
+        "circuit_type": "socket outlets",
+        "mcb_rating_a_as_drawn": 20,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": true,
+        "required_mcb_rating_a": 20,
+        "required_cable_mm2": 2.5,
+        "rcd_required": true,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C3",
+        "circuit_type": "lighting",
+        "mcb_rating_a_as_drawn": 6,
+        "cable_mm2_as_drawn": 1.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 6,
+        "required_cable_mm2": 1.5,
+        "rcd_required": false,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C4",
+        "circuit_type": "lighting",
+        "mcb_rating_a_as_drawn": 6,
+        "cable_mm2_as_drawn": 1.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 6,
+        "required_cable_mm2": 1.5,
+        "rcd_required": false,
+        "compliant": true,
+        "issue": null
+      },
+      {
+        "id": "C5",
+        "circuit_type": "cooker",
+        "mcb_rating_a_as_drawn": 32,
+        "cable_mm2_as_drawn": 2.5,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 32,
+        "required_cable_mm2": 6,
+        "rcd_required": false,
+        "compliant": false,
+        "issue": "Cable is 2.5 mm\u00b2 as drawn; the specification requires a minimum 6 mm\u00b2 copper cable."
+      },
+      {
+        "id": "C6",
+        "circuit_type": "shower",
+        "mcb_rating_a_as_drawn": 40,
+        "cable_mm2_as_drawn": 10,
+        "rcd_protected_as_drawn": false,
+        "required_mcb_rating_a": 40,
+        "required_cable_mm2": 10,
+        "rcd_required": true,
+        "compliant": false,
+        "issue": "The shower circuit has no 30 mA RCD protection as drawn."
+      }
+    ],
+    "sequence": [
+      {
+        "step": 1,
+        "kind": "inspection",
+        "test": null,
+        "action": "Review the drawing and specification, identify all six final circuits, confirm circuit types, protective devices, cable sizes and RCD requirements, and identify the C5 cable-size defect and C6 RCD defect."
+      },
+      {
+        "step": 2,
+        "kind": "safe_isolation",
+        "test": null,
+        "action": "Notify affected persons, switch off the 63 A main switch, isolate the supply, lock and tag the isolation point, and prove dead with an approved voltage indicator."
+      },
+      {
+        "step": 3,
+        "kind": "installation",
+        "test": null,
+        "action": "Install or verify the main earthing terminal, protective conductors, main switch, distribution equipment and circuit wiring in accordance with the approved design."
+      },
+      {
+        "step": 4,
+        "kind": "installation",
+        "test": null,
+        "action": "Install C1 kitchen socket outlets using a 20 A MCB, minimum 2.5 mm\u00b2 copper cable and 30 mA RCD protection."
+      },
+      {
+        "step": 5,
+        "kind": "installation",
+        "test": null,
+        "action": "Install C2 living room socket outlets using a 20 A MCB, minimum 2.5 mm\u00b2 copper cable and 30 mA RCD protection."
+      },
+      {
+        "step": 6,
+        "kind": "installation",
+        "test": null,
+        "action": "Install C3 ground-floor lighting using a 6 A MCB and minimum 1.5 mm\u00b2 copper cable; no RCD is required by the specification."
+      },
+      {
+        "step": 7,
+        "kind": "installation",
+        "test": null,
+        "action": "Install C4 first-floor lighting using a 6 A MCB and minimum 1.5 mm\u00b2 copper cable; no RCD is required by the specification."
+      },
+      {
+        "step": 8,
+        "kind": "installation",
+        "test": null,
+        "action": "Correct C5 by replacing or redesigning the drawn 2.5 mm\u00b2 cooker cable with minimum 6 mm\u00b2 copper cable while retaining the specified 32 A MCB."
+      },
+      {
+        "step": 9,
+        "kind": "installation",
+        "test": null,
+        "action": "Correct C6 by providing 30 mA RCD protection for the 40 A shower circuit while retaining the minimum 10 mm\u00b2 copper cable."
+      },
+      {
+        "step": 10,
+        "kind": "test",
+        "test": "continuity of protective conductors",
+        "action": "With the installation isolated, test continuity of protective conductors on C1, C2, C3, C4, C5 and C6 and record the results."
+      },
+      {
+        "step": 11,
+        "kind": "test",
+        "test": "insulation resistance",
+        "action": "Test insulation resistance on C1, C2, C3, C4, C5 and C6 with sensitive equipment disconnected as necessary, and record the results."
+      },
+      {
+        "step": 12,
+        "kind": "test",
+        "test": "polarity",
+        "action": "Verify polarity on C1, C2, C3, C4, C5 and C6 and record the results."
+      },
+      {
+        "step": 13,
+        "kind": "test",
+        "test": "earth fault loop impedance",
+        "action": "Measure earth fault loop impedance on C1, C2, C3, C4, C5 and C6 and confirm the results are suitable for the protective devices."
+      },
+      {
+        "step": 14,
+        "kind": "test",
+        "test": "RCD operation",
+        "action": "Test operation and disconnection of the 30 mA RCD protecting C1 and C2, and the newly installed 30 mA RCD protecting C6; record the results and verify the applicable RCD protection."
+      },
+      {
+        "step": 15,
+        "kind": "test",
+        "test": "RCD operation",
+        "action": "Verify the absence of any required RCD protection issue on C3, C4 and C5, which do not require RCD protection under the specification, and record the circuit verification result."
+      },
+      {
+        "step": 16,
+        "kind": "test",
+        "test": "functional test",
+        "action": "Carry out functional tests on C1, C2, C3, C4, C5 and C6, including socket outlets, lighting controls, cooker operation and shower operation."
+      },
+      {
+        "step": 17,
+        "kind": "inspection",
+        "test": null,
+        "action": "Inspect terminations, enclosure covers, labels, circuit identification, segregation, earthing and RCD/MCB arrangements; rectify any defects and repeat affected tests."
+      },
+      {
+        "step": 18,
+        "kind": "energize",
+        "test": null,
+        "action": "Remove tools and test equipment, confirm the installation is complete and safe, remove the lock and tag under the agreed procedure, close enclosures, and energize using the main switch."
+      },
+      {
+        "step": 19,
+        "kind": "test",
+        "test": "RCD operation",
+        "action": "With the installation energized, perform the final operational check of the 30 mA RCDs protecting C1, C2 and C6 and confirm correct restoration of supply."
+      },
+      {
+        "step": 20,
+        "kind": "handover",
+        "test": null,
+        "action": "Record all inspection and test results, provide the installation documentation and circuit schedule, explain the main switch and RCD test controls to the user, and hand over the installation."
+      }
+    ]
+  },
+  "change": {
+    "id": "C7",
+    "circuit_type": "outdoor socket outlet",
+    "required_mcb_rating_a": 20,
+    "required_cable_mm2": 2.5,
+    "rcd_required": true,
+    "tests": [
+      "continuity of protective conductors",
+      "insulation resistance",
+      "polarity",
+      "earth fault loop impedance",
+      "RCD operation",
+      "functional test"
+    ]
+  },
+  "usage": {
+    "plan": {
+      "input_tokens": 2229,
+      "output_tokens": 1839,
+      "reasoning_tokens": 327
+    },
+    "change": {
+      "input_tokens": 4025,
+      "output_tokens": 115,
+      "reasoning_tokens": 38
+    }
+  }
+}

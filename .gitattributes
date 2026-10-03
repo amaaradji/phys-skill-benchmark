@@ -1,0 +1,2 @@
+# Keep LF line endings on every platform, so the task-file hashes recorded in runs reproduce.
+* text=auto eol=lf

@@ -1,0 +1,11 @@
+{
+  "A": "gpt-5.6-luna__medium__s1",
+  "B": "gpt-5.6-luna__low__s3",
+  "C": "gpt-5.6-luna__high__s2",
+  "D": "gpt-5.6-luna__low__s1",
+  "E": "gpt-5.6-luna__high__s3",
+  "F": "gpt-5.6-luna__high__s1",
+  "G": "gpt-5.6-luna__medium__s3",
+  "H": "gpt-5.6-luna__low__s2",
+  "I": "gpt-5.6-luna__medium__s2"
+}
