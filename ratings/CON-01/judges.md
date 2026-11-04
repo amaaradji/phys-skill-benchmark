@@ -11,9 +11,11 @@ model, so no model judged its own output.
 | J2 | claude-opus-5-5 |
 | J3 | claude-sonnet-5-5 |
 
-Each judge ran in its own context, saw only the blind packet (`packet.md`, plans labelled A to I)
-and the drawing, and did not see the measurement results or `key.json`. Raw responses are in
-`judges/`; scores and reasons are transcribed to `ratings.csv`.
+Each judge ran in its own context and read only the blind packet (`packet.md`, plans labelled A to
+I) and the drawing, as the session logs show. None read the measurement results or `key.json`. The
+restriction was an instruction in the prompt, not a technical limit. Each session also loaded the
+project's instruction files, which describe the paper and name the evaluated model but contain no
+results. Raw responses are in `judges/`; scores and reasons are transcribed to `ratings.csv`.
 
 AI judges are not qualified electricians, and models trained by similar methods may agree more
 than independent human experts would. These ratings illustrate the marking procedure; they do

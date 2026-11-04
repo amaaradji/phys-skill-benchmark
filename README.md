@@ -66,6 +66,18 @@ they have rated; it is committed afterwards so that the scores can be reproduced
 reshuffled on every call, so do not regenerate a packet once it has been sent. Enter the panel's scores in `ratings.csv` and rerun `score`, which then reports the
 renormalized totals and inter-rater agreement (Krippendorff's alpha, ordinal).
 
+## Known issues
+
+- The CON-01 brief requires all six verification tests for every circuit, including RCD operation
+  on C3 to C5, which need no RCD under the specification. Four of the nine plans resolved the
+  conflict with a step or sentence on RCD operation for those circuits. Judges counted this against
+  conciseness, and on TC-J1 it may have cost the 41-step plan about two points of its total. The runs
+  and ratings were produced with this wording and are unchanged, because the run records carry a hash of the task
+  files. The next revision of the task should require each test only where it applies.
+- `run_task` uses the Responses API, which reports only the deployment name, so the run records do
+  not carry a model version. A Chat Completions call to the same deployment on 4 November 2026
+  returned `gpt-5.6-luna-2026-07-09`.
+
 ## Layout
 
 - `config.yaml`: models under evaluation, and where their credentials come from
