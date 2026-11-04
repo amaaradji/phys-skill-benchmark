@@ -142,7 +142,7 @@ def main():
     out_dir = REPO_ROOT / "results" / args.task_id
     out_dir.mkdir(parents=True, exist_ok=True)
     with open(out_dir / "scores.csv", "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -177,7 +177,7 @@ def main():
                       f"{'undefined' if alpha is None else f'{alpha:.2f}'}; "
                       f"scores within one point on {within_one:.0%} of rated aspects.",
                   "Mean score by rater: " + ", ".join(f"{r} {mean(s):.2f}" for r, s in sorted(by_rater.items()))]
-    (out_dir / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (out_dir / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print("\n".join(lines))
 
 

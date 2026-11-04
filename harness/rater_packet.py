@@ -112,18 +112,18 @@ def main():
         *(f"| {label} |{'  |' * len(judged)}  |" for label in key), "",
     ]
     packet = "\n".join(lines)
-    (out_dir / "packet.md").write_text(packet, encoding="utf-8")
+    (out_dir / "packet.md").write_text(packet, encoding="utf-8", newline="\n")
     image = base64.b64encode((out_dir / "diagram.png").read_bytes()).decode()
     body = markdown.markdown(packet.replace("(diagram.png)", f"(data:image/png;base64,{image})"), extensions=["tables"])
     (out_dir / "packet.html").write_text(
         f"<!doctype html><html><head><meta charset='utf-8'><title>Rating packet {args.task_id}</title>"
-        f"<style>{STYLE}</style></head><body>{body}</body></html>", encoding="utf-8")
+        f"<style>{STYLE}</style></head><body>{body}</body></html>", encoding="utf-8", newline="\n")
 
     with open(out_dir / "ratings.csv", "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["plan", "aspect", "rater", "score", "comment"])
         writer.writerows([label, a["id"], rater, "", ""] for rater in args.raters for label in key for a in judged)
-    (out_dir / "key.json").write_text(json.dumps(key, indent=2), encoding="utf-8")
+    (out_dir / "key.json").write_text(json.dumps(key, indent=2), encoding="utf-8", newline="\n")
     print(f"wrote packet for plans {', '.join(key)} to {out_dir.relative_to(REPO_ROOT)}")
 
 

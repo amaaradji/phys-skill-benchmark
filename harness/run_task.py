@@ -100,7 +100,7 @@ def main():
                 **result,
             }
             path = out_dir / f"{args.model_id}__{effort}__s{sample}.json"
-            path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+            path.write_text(json.dumps(record, indent=2), encoding="utf-8", newline="\n")
             print(f"wrote {path.relative_to(REPO_ROOT)}")
 
 
